@@ -83,7 +83,7 @@
   <task id="t9">
     <title>Analisi</title>
     <type>group</type>
-    <start-constraint-date>2017-09-01T06:00:00.000Z</start-constraint-date>
+    <start-constraint-date>2017-11-10T07:00:00.000Z</start-constraint-date>
     <child-task idref="t36"/>
     <child-task idref="t18"/>
     <child-task idref="t21"/>
@@ -91,7 +91,7 @@
     <child-task idref="t23"/>
     <child-task idref="t24"/>
     <child-task idref="t17"/>
-    <start-no-earlier-than>2017-09-01T06:00:00.000Z</start-no-earlier-than>
+    <start-no-earlier-than>2017-11-10T07:00:00.000Z</start-no-earlier-than>
   </task>
   <task id="t17">
     <title>Consegna documento di specifica</title>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <omniplan xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" xmlns:opnx="http://www.omnigroup.com/namespace/OmniPlan/v2">
-  <window x="0" y="0" w="1680" h="1008">
+  <window x="0" y="76" w="1680" h="951">
     <editing-scenario>eW07pJYT66a</editing-scenario>
     <view>task</view>
     <change-tracking/>
     <status-display>basic</status-display>
     <task-view>
       <split-view-divider-position>392</split-view-divider-position>
-      <outline x="0" y="0" w="392" h="985">
+      <outline x="0" y="0" w="392" h="868">
         <column name="Violations" width="20"/>
         <column name="Notes" width="20"/>
         <column name="Title" width="277"/>
         <column name="Effort" width="70"/>
         <expanded-items idrefs="t42 t51 t31 t9"/>
-        <selected-items-at-filter-time idrefs="t49 t44 t38 t55 t50 t53 t36 t47 t42 t56 t45 t40 t51 t39 t54 t48 t46 t52"/>
+        <selected-items-at-filter-time idrefs="t49 t38 t55 t50 t44 t53 t36 t42 t47 t56 t45 t40 t39 t51 t48 t54 t46 t52"/>
       </outline>
-      <gantt-view x="67" y="0" w="986" h="985">
+      <gantt-view x="-499.5" y="0" w="986" h="868">
         <view-mode>actual</view-mode>
         <dependency-lines/>
         <constraints/>
