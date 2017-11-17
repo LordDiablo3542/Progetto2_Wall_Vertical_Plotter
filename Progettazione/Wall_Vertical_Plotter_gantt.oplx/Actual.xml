@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" xmlns:opns="http://www.omnigroup.com/namespace/OmniPlan/v2" id="eW07pJYT66a">
+  <start-date>2017-11-10T07:00:00.000Z</start-date>
+  <prototype-task>
+    <task id="t-2">
+      <title>Attività 1</title>
+      <effort>28800</effort>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t-3">
+      <title>Attività cardine 1</title>
+      <type>milestone</type>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t-4">
+      <title>Gruppo 1</title>
+      <type>group</type>
+    </task>
+  </prototype-task>
+  <prototype-resource>
+    <resource id="r-2">
+      <name>Risorsa 1</name>
+      <type>Staff</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-3">
+      <name>Equipaggiamento 1</name>
+      <type>Equipment</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-4">
+      <name>Materiale 1</name>
+      <type>Material</type>
+      <units-available>0</units-available>
+      <efficiency>0</efficiency>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-5">
+      <name>Gruppo 1</name>
+      <type>Group</type>
+    </resource>
+  </prototype-resource>
+  <top-resource idref="r-1"/>
+  <resource id="r-1">
+    <name/>
+    <type>Group</type>
+    <schedule>
+      <schedule-day day-of-week="sunday"/>
+      <schedule-day day-of-week="monday"/>
+      <schedule-day day-of-week="tuesday"/>
+      <schedule-day day-of-week="wednesday"/>
+      <schedule-day day-of-week="thursday"/>
+      <schedule-day day-of-week="friday">
+        <time-span start-time="28800" end-time="41400"/>
+        <time-span start-time="47700" end-time="59400"/>
+      </schedule-day>
+      <schedule-day day-of-week="saturday"/>
+      <calendar name="Time Off" editable="yes" overtime="no"/>
+      <calendar name="Overtime" editable="yes" overtime="yes"/>
+    </schedule>
+    <child-resource idref="r1"/>
+  </resource>
+  <resource id="r1">
+    <name>Risorsa 1</name>
+    <type>Staff</type>
+  </resource>
+  <top-task idref="t-1"/>
+  <task id="t-1">
+    <type>group</type>
+    <child-task idref="t9"/>
+    <child-task idref="t31"/>
+    <child-task idref="t42"/>
+    <child-task idref="t51"/>
+    <child-task idref="t52"/>
+    <child-task idref="t53"/>
+    <child-task idref="t54"/>
+  </task>
+  <task id="t9">
+    <title>Analisi</title>
+    <type>group</type>
+    <start-constraint-date>2017-11-10T07:00:00.000Z</start-constraint-date>
+    <child-task idref="t36"/>
+    <child-task idref="t18"/>
+    <child-task idref="t21"/>
+    <child-task idref="t22"/>
+    <child-task idref="t23"/>
+    <child-task idref="t24"/>
+    <child-task idref="t17"/>
+    <start-no-earlier-than>2017-11-10T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t17">
+    <title>Consegna documento di specifica</title>
+    <type>milestone</type>
+    <completion-percentage>1</completion-percentage>
+    <start-constraint-date>2017-11-24T07:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2017-11-24T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t18">
+    <title>Domande ai docenti</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-17T07:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2017-11-17T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t21">
+    <title>Analisi del dominio</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-17T07:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2017-11-17T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t22">
+    <title>Analisi requisiti</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-17T07:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2017-11-17T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t23">
+    <title>Analisi costi e benefici</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-10T07:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2017-11-10T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t24">
+    <title>Creazione documento di specifica</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-17T07:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2017-11-17T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t31">
+    <title>Progettazione</title>
+    <type>group</type>
+    <start-constraint-date>2017-11-10T07:00:00.000Z</start-constraint-date>
+    <child-task idref="t32"/>
+    <child-task idref="t38"/>
+    <child-task idref="t39"/>
+    <child-task idref="t33"/>
+    <child-task idref="t40"/>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.578105" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-11-10T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t32">
+    <title>Gantt</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-10T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.578105" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-11-10T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t33">
+    <title>Interfaccia grafica</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-17T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.576372" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-11-17T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t36">
+    <title>Requisiti</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-11-10T07:15:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2017-11-10T07:15:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t38">
+    <title>Scelta HW e SW</title>
+    <effort>48600</effort>
+    <start-constraint-date>2017-11-10T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.576372" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-11-10T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t39">
+    <title>Progettazione componenti</title>
+    <effort>48600</effort>
+    <start-constraint-date>2017-11-10T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.576372" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-11-10T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t40">
+    <title>Schema logico Arduino</title>
+    <effort>48600</effort>
+    <start-constraint-date>2017-11-24T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.576372" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-11-24T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t42">
+    <title>Implementazione</title>
+    <type>group</type>
+    <start-constraint-date>2017-12-01T07:00:00.000Z</start-constraint-date>
+    <child-task idref="t44"/>
+    <child-task idref="t45"/>
+    <child-task idref="t46"/>
+    <child-task idref="t47"/>
+    <child-task idref="t48"/>
+    <child-task idref="t49"/>
+    <child-task idref="t50"/>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-01T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t44">
+    <title>[HW] Stampa componenti</title>
+    <effort>24300</effort>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+  </task>
+  <task id="t45">
+    <title>[HW] Costruzione pannello</title>
+    <effort>48600</effort>
+    <start-constraint-date>2017-12-01T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-01T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t46">
+    <title>[SW] Vettorizzare immagini</title>
+    <effort>24300</effort>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+  </task>
+  <task id="t47">
+    <title>[SW] Movimento motori</title>
+    <effort>72000</effort>
+    <start-constraint-date>2017-12-08T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-08T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t48">
+    <title>[SW] Movimento pennarello</title>
+    <effort>24300</effort>
+    <start-constraint-date>2017-12-08T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-08T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t49">
+    <title>[SW] Implementazione Wi-Fi</title>
+    <effort>72000</effort>
+    <start-constraint-date>2017-12-29T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-29T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t50">
+    <title>[SW] Creazione sito</title>
+    <effort>48600</effort>
+    <start-constraint-date>2017-12-29T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="1" g="0.149131" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-29T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t51">
+    <title>Testing</title>
+    <type>group</type>
+    <start-constraint-date>2017-11-24T14:00:00.000Z</start-constraint-date>
+    <child-task idref="t55"/>
+    <child-task idref="t56"/>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0" g="0.976805" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-11-24T14:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t52">
+    <title>Documentazione</title>
+    <effort>291600</effort>
+    <style>
+      <value key="gantt-fill-color">
+        <color r="0.182946" g="0.112248" b="0.974588" archive="YnBsaXN0MDDUAQIDBAUGKyxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKcHCBMZHSQoVSRudWxs1QkKCwwNDg8QERJcTlNDb21wb25lbnRzVU5TUkdCXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29sb3JTcGFjZVYkY2xhc3NPECgwLjE4Mjk0NTc2MjUgMC4xMTIyNDg0NzAxIDAuOTc0NTg4MjE1NCAxTxARMC4xMzk3MjE2MTcxIDAgMQAQAYACgAbTFA0VFhcYVU5TSUNDWU5TU3BhY2VJRIADgAUQDNIaDRscV05TLmRhdGFPEQIkAAACJGFwcGwEAAAAbW50clJHQiBYWVogB+EABwAHAA0AFgAgYWNzcEFQUEwAAAAAQVBQTAAAAAAAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1hcHBsyhqVgiV/EE04mRPV0eoVggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKZGVzYwAAAPwAAABlY3BydAAAAWQAAAAjd3RwdAAAAYgAAAAUclhZWgAAAZwAAAAUZ1hZWgAAAbAAAAAUYlhZWgAAAcQAAAAUclRSQwAAAdgAAAAgY2hhZAAAAfgAAAAsYlRSQwAAAdgAAAAgZ1RSQwAAAdgAAAAgZGVzYwAAAAAAAAALRGlzcGxheSBQMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0ZXh0AAAAAENvcHlyaWdodCBBcHBsZSBJbmMuLCAyMDE3AABYWVogAAAAAAAA81EAAQAAAAEWzFhZWiAAAAAAAACD3wAAPb////+7WFlaIAAAAAAAAEq/AACxNwAACrlYWVogAAAAAAAAKDgAABELAADIuXBhcmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApbc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeTAAD9kP//+6L///2jAAAD3AAAwG6ABNIeHyAhWiRjbGFzc25hbWVYJGNsYXNzZXNdTlNNdXRhYmxlRGF0YaMgIiNWTlNEYXRhWE5TT2JqZWN00h4fJSZcTlNDb2xvclNwYWNloicjXE5TQ29sb3JTcGFjZdIeHykqV05TQ29sb3KiKSNfEA9OU0tleWVkQXJjaGl2ZXLRLS5Ucm9vdIABAAgAEQAaACMALQAyADcAPwBFAFAAXQBjAHAAhQCMALcAywDNAM8A0QDYAN4A6ADqAOwA7gDzAPsDIwMlAyoDNQM+A0wDUANXA2ADZQNyA3UDggOHA48DkgOkA6cDrAAAAAAAAAIBAAAAAAAAAC8AAAAAAAAAAAAAAAAAAAOu"/>
+      </value>
+    </style>
+  </task>
+  <task id="t53">
+    <title>Presentazione</title>
+    <effort>291600</effort>
+    <style>
+      <value key="gantt-fill-color">
+        <color r="0.974588" g="0" b="0.686047" archive="YnBsaXN0MDDUAQIDBAUGKyxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKcHCBMZHSQoVSRudWxs1QkKCwwNDg8QERJcTlNDb21wb25lbnRzVU5TUkdCXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29sb3JTcGFjZVYkY2xhc3NPEB0wLjk3NDU4ODIxNTQgMCAwLjY4NjA0NzQ0NzggMU8QETEgMCAwLjY0MzQ5MjIyMTgAEAGAAoAG0xQNFRYXGFVOU0lDQ1lOU1NwYWNlSUSAA4AFEAzSGg0bHFdOUy5kYXRhTxECJAAAAiRhcHBsBAAAAG1udHJSR0IgWFlaIAfhAAcABwANABYAIGFjc3BBUFBMAAAAAEFQUEwAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbMoalYIlfxBNOJkT1dHqFYIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmRlc2MAAAD8AAAAZWNwcnQAAAFkAAAAI3d0cHQAAAGIAAAAFHJYWVoAAAGcAAAAFGdYWVoAAAGwAAAAFGJYWVoAAAHEAAAAFHJUUkMAAAHYAAAAIGNoYWQAAAH4AAAALGJUUkMAAAHYAAAAIGdUUkMAAAHYAAAAIGRlc2MAAAAAAAAAC0Rpc3BsYXkgUDMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdGV4dAAAAABDb3B5cmlnaHQgQXBwbGUgSW5jLiwgMjAxNwAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAg98AAD2/////u1hZWiAAAAAAAABKvwAAsTcAAAq5WFlaIAAAAAAAACg4AAARCwAAyLlwYXJhAAAAAAADAAAAAmZmAADypwAADVkAABPQAAAKW3NmMzIAAAAAAAEMQgAABd7///MmAAAHkwAA/ZD///ui///9owAAA9wAAMBugATSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXU5TTXV0YWJsZURhdGGjICIjVk5TRGF0YVhOU09iamVjdNIeHyUmXE5TQ29sb3JTcGFjZaInI1xOU0NvbG9yU3BhY2XSHh8pKldOU0NvbG9yoikjXxAPTlNLZXllZEFyY2hpdmVy0S0uVHJvb3SAAQAIABEAGgAjAC0AMgA3AD8ARQBQAF0AYwBwAIUAjACsAMAAwgDEAMYAzQDTAN0A3wDhAOMA6ADwAxgDGgMfAyoDMwNBA0UDTANVA1oDZwNqA3cDfAOEA4cDmQOcA6EAAAAAAAACAQAAAAAAAAAvAAAAAAAAAAAAAAAAAAADow=="/>
+      </value>
+    </style>
+  </task>
+  <task id="t54">
+    <title>Consegna</title>
+    <type>milestone</type>
+    <start-constraint-date>2018-01-26T15:30:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2018-01-26T15:30:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t55">
+    <title>Correzione bug SW</title>
+    <effort>219600</effort>
+    <start-constraint-date>2017-12-01T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0" g="0.976805" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-01T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t56">
+    <title>Correzione bug HW</title>
+    <effort>218700</effort>
+    <start-constraint-date>2017-12-01T07:00:00.000Z</start-constraint-date>
+    <style>
+      <value key="gantt-fill-color">
+        <color space="srgb" r="0" g="0.976805" b="0"/>
+      </value>
+    </style>
+    <start-no-earlier-than>2017-12-01T07:00:00.000Z</start-no-earlier-than>
+  </task>
+  <critical-path root="-1" enabled="false" resources="false">
+    <color r="1" g="0.5" b="0.5"/>
+  </critical-path>
+</scenario>

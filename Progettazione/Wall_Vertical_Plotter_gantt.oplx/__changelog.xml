@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
+  <version>2.1</version>
+  <task-change-set user="Jonas Bertossa" date="2017-11-17T12:27:59.153Z" timestamp="2017-11-17T12:27:59.153Z">
+    <change idref="t9" attribute="noEarlierThanConstraintDate" type="date" from="2017-09-01T06:00:00.000Z" to="2017-11-10T07:00:00.000Z"/>
+  </task-change-set>
+</changelog>
