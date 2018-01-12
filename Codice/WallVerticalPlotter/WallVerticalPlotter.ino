@@ -6,35 +6,37 @@ float x;
 float y;
 bool isRelativ = false;
 void readGCode (int text){
-  if(txt.equals("G1")){
-    while(!txt.equals("/n")){
-      if(txt.equals("x")){
-        String sx = "";
-        while(!txt.equals(" ")){
-          sx.concat(txt);
+  while(){
+    if(txt.equals("G1")){
+      while(!txt.equals("/n")){
+        if(txt.equals("x")){
+          String sx = "";
+          while(!txt.equals(" ")){
+            sx.concat(txt);
+          }
+        }
+        else if (txt.equals("y")) {
+          String sy = "";
+          while(!txt.equals(" ")){
+            sy.concat(txt);
+          }
         }
       }
-      else if (txt.equals("y")) {
-        String sy = "";
-        while(!txt.equals(" ")){
-          sy.concat(txt);
-        }
+      if(isRelativ){
+        x += float(sx);
+        y += float(sy);
+      }
+      else{
+        x = float(sx);
+        y = float(sy);
       }
     }
-    if(isRelativ){
-      x += float(sx);
-      y += float(sy);
+    else if(equals("G90")){
+      isRelativ = false;
     }
-    else{
-      x = float(sx);
-      y = float(sy);
+    else if(equals("G91")){
+      isRelativ = true;
     }
-  }
-  else if(equals("G90")){
-    isRelativ = false;
-  }
-  else if(equals("G91")){
-    isRelativ = true;
   }
 }
 
