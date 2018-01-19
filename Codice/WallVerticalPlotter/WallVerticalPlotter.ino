@@ -67,11 +67,6 @@ void readGCode (String s){
     	}
     }
     else if(s.charAt(i) == ';'){
-  		isX = false;
-  		isY = false;
-  		isE = false;
-  		isMove = false;
-  		isG = false;
   		if(isMove){
   			//moveMotor(corX.toInt()-actualX, corY.toInt()-actualY, false);
   			actualX = corX.toInt();
@@ -81,6 +76,11 @@ void readGCode (String s){
   			//paint(corX.toInt(), corY.toInt(), corE.toInt());
     	}
       Serial.println("X:"+corX + " Y:" + corY + " E:" + corE + " act. X:" + actualX + " act. Y:" + actualY);
+  		isX = false;
+  		isY = false;
+  		isE = false;
+  		isMove = false;
+  		isG = false;
       corX = "";
     	corY = "";
     	corE = "";
