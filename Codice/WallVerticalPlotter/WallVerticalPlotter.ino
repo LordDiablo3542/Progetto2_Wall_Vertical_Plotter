@@ -110,10 +110,10 @@ void paint (int x, int y, int e){
 
 void moveMotor (int x, int y, bool s) {
 	if(s){
-		servo.write(-10);
+		servo.write(60);
 	}
 	else{
-		servo.write(10);
+		servo.write(0);
 	}
 }
 
@@ -125,42 +125,41 @@ void setup() {
 
   //servo
   servo.attach(servoPin);
-  servo.write(-10);
+  servo.write(0);
   
   //SD
-  Serial.print("Initializing SD card...");
+  Serial.print("Inizializazione scheda SD...");
 
-  // see if the card is present and can be initialized:
+  // Controlla se la scheda si può inizializare o se é presente.
   if (!SD.begin(chipSelect)) {
-    Serial.println("Card failed, or not present");
-    // don't do anything more:
+    Serial.println("scheda non leggibile o non presente");
+    // Non fà più niente.
     while (1);
   }
-  Serial.println("card initialized.");
+  Serial.println("scheda inizializata.");
 
-  // open the file. note that only one file can be open at a time,
-  // so you have to close this one before opening another.
-  dataFile = SD.open("prova.txt");
+  //Apre il file
+  String fileName = "prova.mpt";
+  dataFile = SD.open(fileName);
 
-  // if the file is available, write to it:
+  // Se avviabile, comincia a leggerlo.
   if (dataFile) {
     String s = "";
     while (dataFile.available()) {
       t = dataFile.read();
       s += char(t);
     }
-    Serial.println(s);
+    //Passa il contenuto al metodo e chiude il file.
     readGCode(s);
     dataFile.close();
   }
-  // if the file isn't open, pop up an error:
+  // Se il file non si può aprire stampa un errore.
   else {
-    Serial.println("error opening prova.txt");
+    Serial.println("error opening " + fileName );
   }
   
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 
 }
