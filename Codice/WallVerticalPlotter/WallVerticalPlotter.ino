@@ -26,6 +26,7 @@ int actualX = 0;
 int actualY = 0;
 
 void readGCode (String s){
+  Serial.println("enter gcode...");
   for(int i = 0 ; i < s.length() ; i++){
     if(s.charAt(i) == 'G'){
     	isG = true;
@@ -74,12 +75,12 @@ void readGCode (String s){
     }
     else if(s.charAt(i) == ';'){
   		if(isMove){
-  			//moveMotor(corX.toInt()-actualX, corY.toInt()-actualY, false);
+  			moveMotor(corX.toInt()-actualX, corY.toInt()-actualY, false);
   			actualX = corX.toInt();
   			actualY = corY.toInt();
   		}
   		else{
-  			//paint(corX.toInt(), corY.toInt(), corE.toInt());
+  			paint(corX.toInt(), corY.toInt(), corE.toInt());
     	}
       Serial.println("X:"+corX + " Y:" + corY + " E:" + corE + " act. X:" + actualX + " act. Y:" + actualY);
   		isX = false;
@@ -100,6 +101,7 @@ void readGCode (String s){
 }
 
 void paint (int x, int y, int e){
+  Serial.println("enter paint");
 	if (isRelativ){
 		moveMotor(x, y, true);
 
@@ -115,6 +117,9 @@ void paint (int x, int y, int e){
 }
 
 void moveMotor (int x, int y, bool s) {
+  digitalWrite(stepD, LOW);
+  digitalWrite(stepS, LOW);
+  Serial.println("enter moveMotor");
 	if(s){
 		servo.write(60);
 	}
@@ -192,6 +197,7 @@ void setup() {
   Serial.println("scheda inizializata.");
 
   //Apre il file
+  
   String fileName = "prova.mpt";
   dataFile = SD.open(fileName);
 
@@ -210,7 +216,9 @@ void setup() {
   else {
     Serial.println("error opening " + fileName );
   }
-  
+
+  delay(1000);
+
 }
 
 void loop() {
