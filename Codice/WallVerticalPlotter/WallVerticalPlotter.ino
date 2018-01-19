@@ -2,6 +2,12 @@
 #include <SD.h>
 #include <Servo.h>
 
+const int dirD = 4;
+const int stepD = 3;
+const int dirS = 6;
+const int stepS = 5;
+const int pinEnable = 8;
+
 int servoPin = 7;
 Servo servo;
 const int chipSelect = 4;
@@ -55,7 +61,7 @@ void readGCode (String s){
     	isE = true;
     }
     else if((s.charAt(i) == '0' || s.charAt(i) == '1' || s.charAt(i) == '2' || s.charAt(i) == '3' || s.charAt(i) == '4' || s.charAt(i) == '5' ||
-    		s.charAt(i) == '6' || s.charAt(i) == '7' || s.charAt(i) == '8' || s.charAt(i) == '9') && isG){
+    		s.charAt(i) == '6' || s.charAt(i) == '7' || s.charAt(i) == '8' || s.charAt(i) == '9' || s.charAt(i) == '-') && isG){
     	if(isY){
     		corY += s.charAt(i);
     	}
@@ -115,19 +121,66 @@ void moveMotor (int x, int y, bool s) {
 	else{
 		servo.write(0);
 	}
+
+	if(x < 0){
+	  	digitalWrite(dirS, HIGH);
+	}
+	else if(x > 0){
+	  	digitalWrite(dirS, LOW);
+	}
+	else if(x == 0){
+		if(y < 0){
+		  	digitalWrite(dirS, LOW);
+		}
+		else if(y > 0){
+		  	digitalWrite(dirS, HIGH);
+		}
+	}
+
+	if(y < 0){
+	  	digitalWrite(dirD, HIGH);
+	}
+	else if(y > 0){
+	  	digitalWrite(dirD, LOW);
+	}
+	else if(y == 0){
+		if(x < 0){
+	  		digitalWrite(dirD, HIGH);
+		}
+		else if(x > 0){
+		  	digitalWrite(dirD, LOW);
+		}
+	}
+
+	for(int i = 0; i < max(x, y); i++){
+	    digitalWrite(stepD, HIGH);
+	    digitalWrite(stepS, HIGH);
+	    delayMicroseconds(700);
+	    digitalWrite(stepD, LOW);
+	    digitalWrite(stepS, LOW);
+	    delayMicroseconds(700);
+	}
 }
 
 void setup() {
-  Serial.begin(115200);
-  while (!Serial) {
-    ;
-  }
+  //motor
+  pinMode(dirD, OUTPUT);
+  pinMode(stepD, OUTPUT);
+  pinMode(dirS, OUTPUT);
+  pinMode(stepS, OUTPUT);
+  pinMode(pinEnable, OUTPUT);
 
   //servo
   servo.attach(servoPin);
   servo.write(0);
   
-  //SD
+ 
+
+  //SD 
+  Serial.begin(115200);
+  while (!Serial) {
+    ;
+  }
   Serial.print("Inizializazione scheda SD...");
 
   // Controlla se la scheda si può inizializare o se é presente.
