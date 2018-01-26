@@ -25,7 +25,7 @@ bool isG = false;
 String corX = "";
 String corY = "";
 String corE = "";
-bool isRelativ = false;
+bool isRelativ = true;
 int actualX = 0;
 int actualY = 0;
 
