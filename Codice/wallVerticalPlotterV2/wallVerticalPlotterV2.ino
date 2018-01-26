@@ -121,25 +121,83 @@ void paint (int x, int y, int e){
 }
 
 void moveMotor (int x, int y, bool s) {
-  for( int i = 0 ; i < max(abs(x),abs(y)) ; i++ ){
-    if(y == 0){
-      if(x > 0){
-        sStepper.step(1);
-        dStepper.step(1);
+  if(x == 0 || y == 0){
+    for( int i = 0 ; i < max(abs(x),abs(y)) ; i++ ){
+      if(y == 0){
+        if(x > 0){
+          sStepper.step(1);
+          dStepper.step(1);
+        }
+        else if(x < 0){
+          sStepper.step(-1);
+          dStepper.step(-1);
+        }
       }
-      else{
-        sStepper.step(-1);
-        dStepper.step(-1);
+      else if(x == 0){
+        if(y > 0){
+          sStepper.step(1);
+          dStepper.step(-1);
+        }
+        else if(y < 0){
+          sStepper.step(-1);
+          dStepper.step(1);
+        }
       }
     }
-    else if(x == 0){
-      if(y > 0){
-        sStepper.step(1);
-        dStepper.step(-1);
+  }
+  else{
+    for( int i = 0 ; i < min(abs(x),abs(y)) ; i++ ){
+      if(x > 0 && y > 0){
+        if(x == y){
+          dStepper.step(1);
+        }
+        else if(x > y){
+          dStepper.step(1*( max(x,y)/min(x,y) ));
+          sStepper.step(1);
+        }
+        else{
+          dStepper.step(1);
+          sStepper.step(1*( max(x,y)/min(x,y) ));
+        }
       }
-      else{
-        sStepper.step(-1);
-        dStepper.step(1);
+      else if(x < 0 && y > 0){
+        if(x == y){
+          sStepper.step(1);
+        }
+        else if(x > y){
+          sStepper.step(1*( max(x,y)/min(x,y) ));
+          dStepper.step(-1);
+        }
+        else{
+          sStepper.step(1);
+          dStepper.step(-1*( max(x,y)/min(x,y) ));
+        }
+      }
+      else if(x > 0 && y < 0){
+        if(x == y){
+          dStepper.step(-1);
+        }
+        else if(x > y){
+          dStepper.step(1*( max(x,y)/min(x,y) ));
+          sStepper.step(-1);
+        }
+        else{
+          dStepper.step(1);
+          sStepper.step(-1*( max(x,y)/min(x,y) ));
+        }
+      }
+      else if(x < 0 && y < 0){
+        if(x == y){
+          sStepper.step(-1);
+        }
+        else if(x > y){
+          dStepper.step(-1*( max(x,y)/min(x,y) ));
+          sStepper.step(-1);
+        }
+        else{
+          dStepper.step(-1);
+          sStepper.step(-1*( max(x,y)/min(x,y) ));
+        }
       }
     }
   }
