@@ -31,36 +31,36 @@ int actualY = 0;
 
 void readGCode (String s){
   Serial.println("enter gcode...");
-  for(int i = 0 ; i < s.length() ; i++){
+  for(int i = 0 ; i <= s.length() ; i++){
     if(s.charAt(i) == 'G'){
     	isG = true;
     	if(s.charAt(i+1) == '9'){
-    		i++;
-    		if(s.charAt(i+1) == '0'){
-    			i++;
+    		//i++;
+    		if(s.charAt(i+2) == '0'){
+    			//i++;
     			isRelativ = false;
     		}
-    		else if(s.charAt(i+1) == '1'){
-    			i++;
+    		else if(s.charAt(i+2) == '1'){
+    			//i++;
     			isRelativ = true;
     		}
-    		else if(s.charAt(i+1) == '2'){
-    			i++;
+    		else if(s.charAt(i+2) == '2'){
+    			//i++;
     			isMove = true;
     		}
     	}
     }
-    else if(s.charAt(i) == 'X'  && isG){
+    else if( (s.charAt(i) == 'X' || s.charAt(i) == 'x')  && isG){
 		isE = false;
     	isY = false;
     	isX = true;
     }
-    else if(s.charAt(i) == 'Y'  && isG){
+    else if((s.charAt(i) == 'Y' || s.charAt(i) == 'y')  && isG){
 		isX = false;
 		isE = false;
     	isY = true;
     }
-    else if(s.charAt(i) == 'E'  && isG){
+    else if((s.charAt(i) == 'E' || s.charAt(i) == 'e')  && isG){
     	isY = false;
     	isX = false;
     	isE = true;
@@ -86,7 +86,7 @@ void readGCode (String s){
   		else{
   			paint(corX.toInt(), corY.toInt(), corE.toInt());
     	}
-      Serial.println("X:"+corX + " Y:" + corY + " E:" + corE + " act. X:" + actualX + " act. Y:" + actualY);
+      Serial.println("X:"+corX + " Y:" + corY + " E:" + corE);
   		isX = false;
   		isY = false;
   		isE = false;
@@ -152,12 +152,12 @@ void moveMotor (int x, int y, bool s) {
           dStepper.step(1);
         }
         else if(x > y){
-          dStepper.step(1*( max(x,y)/min(x,y) ));
+          dStepper.step(1*( long(max(x,y))/long(min(x,y)) ));
           sStepper.step(1);
         }
         else{
           dStepper.step(1);
-          sStepper.step(1*( max(x,y)/min(x,y) ));
+          sStepper.step(1*( long(max(x,y))/long(min(x,y)) ));
         }
       }
       else if(x < 0 && y > 0){
@@ -165,12 +165,12 @@ void moveMotor (int x, int y, bool s) {
           sStepper.step(1);
         }
         else if(x > y){
-          sStepper.step(1*( max(x,y)/min(x,y) ));
+          sStepper.step(1*( long(max(x,y))/long(min(x,y)) ));
           dStepper.step(-1);
         }
         else{
           sStepper.step(1);
-          dStepper.step(-1*( max(x,y)/min(x,y) ));
+          dStepper.step(-1*( long(max(x,y))/long(min(x,y)) ));
         }
       }
       else if(x > 0 && y < 0){
@@ -178,12 +178,12 @@ void moveMotor (int x, int y, bool s) {
           dStepper.step(-1);
         }
         else if(x > y){
-          dStepper.step(1*( max(x,y)/min(x,y) ));
+          dStepper.step(1*( long(max(x,y))/long(min(x,y)) ));
           sStepper.step(-1);
         }
         else{
           dStepper.step(1);
-          sStepper.step(-1*( max(x,y)/min(x,y) ));
+          sStepper.step(-1*( long(max(x,y))/long(min(x,y)) ));
         }
       }
       else if(x < 0 && y < 0){
@@ -191,12 +191,12 @@ void moveMotor (int x, int y, bool s) {
           sStepper.step(-1);
         }
         else if(x > y){
-          dStepper.step(-1*( max(x,y)/min(x,y) ));
+          dStepper.step(-1*( long(max(x,y))/long(min(x,y)) ));
           sStepper.step(-1);
         }
         else{
           dStepper.step(-1);
-          sStepper.step(-1*( max(x,y)/min(x,y) ));
+          sStepper.step(-1*( long(max(x,y))/long(min(x,y)) ));
         }
       }
     }
@@ -212,8 +212,6 @@ void setup() {
   servo.attach(servoPin);
   servo.write(0);
   
- 
-
   //SD 
   Serial.begin(115200);
   while (!Serial) {
@@ -225,7 +223,7 @@ void setup() {
   if (!SD.begin(chipSelect)) {
     Serial.println("scheda non leggibile o non presente");
     // Non fà più niente.
-    while (1);
+    //while (1);
   }
   Serial.println("scheda inizializata.");
 
@@ -242,21 +240,16 @@ void setup() {
       s += char(t);
     }
     //Passa il contenuto al metodo e chiude il file.
-    for(int i = 0; i < 100 ; i++){
-      
-      readGCode(s);
-    }
+    readGCode(s);
     dataFile.close();
   }
   // Se il file non si può aprire stampa un errore.
   else {
     Serial.println("error opening " + fileName );
   }
-
   delay(1000);
 
 }
 
 void loop() {
-
 }
