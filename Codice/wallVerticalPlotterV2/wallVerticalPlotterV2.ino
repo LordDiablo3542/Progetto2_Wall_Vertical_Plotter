@@ -105,8 +105,14 @@ void readGCode (String s){
 }
 
 void paint (int x, int y, int e){
-  Serial.println("enter paint");
+  int i = sqrt(pow(x, 2) + pow(y, 2))
+  double r = 1;
+  if(i < e){
+    double r = e/i;
+  }
+    
 	if (isRelativ){
+    
 		moveMotor(x, y, true);
 
 		actualX += x;
@@ -120,7 +126,10 @@ void paint (int x, int y, int e){
 	}
 }
 
-void moveMotor (int x, int y, bool s) {
+void moveMotor (int x, int y, bool needServo) {
+  if(needServo){
+    servo.write(20);
+  }
   if(x == 0 || y == 0){
     for( int i = 0 ; i < max(abs(x),abs(y)) ; i++ ){
       if(y == 0){
@@ -201,6 +210,7 @@ void moveMotor (int x, int y, bool s) {
       }
     }
   }
+  servo.write(0);
 }
 
 void setup() {
