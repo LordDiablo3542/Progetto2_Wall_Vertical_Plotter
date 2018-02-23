@@ -60,7 +60,7 @@ void readGCode (String s){
 		isE = false;
     	isY = true;
     }
-    else if((s.charAt(i) == 'E' || s.charAt(i) == 'e')  && isG){
+    else if((s.charAt(i) == 'Z' || s.charAt(i) == 'z')  && isG){
     	isY = false;
     	isX = false;
     	isE = true;
