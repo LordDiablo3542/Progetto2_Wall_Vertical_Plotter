@@ -1,4 +1,3 @@
-1.  Creare un programma su Arduino IDE con questo codice:
 const int dirD = 4;     //pin che indica la direzione per il motore di destra
 const int stepD = 3;  // pin che serve per far girare il motore di destra
 const int dirS = 6;     // pin che indica la direzione del motore di sinistra
